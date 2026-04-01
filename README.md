@@ -317,6 +317,50 @@ The ZT-DT framework achieves a **9% to 12% improvement** in F1-Score over standa
 
 Experiments were conducted on standardized hardware (Intel Core i7, 16 GB RAM) with fixed random seeds to ensure full reproducibility.
 
+### Console Output — Pipeline Execution
+
+The real-time anomaly detection pipeline produces the following structured console output during execution:
+
+```
+Timestamp                | Status          | Anomaly | Trust Score | ZTP Action
+-------------------------|-----------------|---------|-------------|------------
+2026-04-01 10:30:45.123  | Normal          |    0    |   0.9800    | ALLOW
+2026-04-01 10:30:46.124  | Normal          |    0    |   0.9840    | ALLOW
+2026-04-01 10:30:47.125  | Attack          |    1    |   0.7970    | RESTRICT
+2026-04-01 10:30:48.126  | Attack          |    1    |   0.6576    | RESTRICT
+2026-04-01 10:30:49.127  | Normal          |    0    |   0.7261    | RESTRICT
+```
+
+Each row represents a single evaluation tick. During an attack event, the trust score degrades via the EMA update and the Zero Trust Policy Engine escalates the enforcement action from `ALLOW` to `RESTRICT`. Trust recovery occurs gradually as normal behavior resumes, demonstrating the hysteresis effect built into the EMA-based trust model.
+
+### Dashboard Output
+
+The interactive dashboard (`dashboard.py`) provides live visualization of the ZT-DT framework across three tabs: **Live Monitoring**, **CPS Topology**, and **Audit Logs**.
+
+**Secure State — No Breach Detected**
+
+System status shows `SECURE` with ZTP Enforcement set to `ALLOW`. Active Node Trust is high (0.8349) and Anomaly Probability reads 0%. The Trust Score line (cyan) remains elevated while the Anomaly Score (red dashed) stays near zero.
+
+![No Breach Detected](images/No_Breach_Detected.png)
+
+**Attack State — Breach Detected**
+
+Upon injecting a targeted attack, the system immediately transitions to `BREACH DETECTED`. Anomaly Probability spikes to 100%, the Active Node Trust drops (0.7982, delta −0.1995), and ZTP Enforcement escalates to `RESTRICT`. The red dashed Anomaly Score line spikes sharply while the Trust Score line begins to degrade.
+
+![Breach Detected](images/Breach_Detected.png)
+
+**Zero Trust Evaluation Engine — Live Graph**
+
+The live monitoring chart plots three overlaid signals in real time: Trust Score (cyan, filled area), Anomaly Score (red dashed), and Sensor Flow Rate (green). Attack events are clearly visible as sharp upward spikes in the Anomaly Score accompanied by corresponding trust degradation.
+
+![Zero Trust Evaluation Engine Graph](images/Graph.png)
+
+**Audit Logs — Zero Trust Policy Logs**
+
+The Audit Logs tab displays a timestamped record of every evaluation cycle for each CPS node, including the raw Anomaly Score, computed Trust Score, enforced Action, sensor Flow rate, and Pressure readings. Highlighted rows (amber) indicate `RESTRICT` decisions immediately following an attack event, with subsequent rows transitioning back to `ALLOW` as the trust score recovers.
+
+![Zero Trust Policy Logs](images/Logs.png)
+
 ---
 
 ## Dataset
@@ -387,29 +431,6 @@ The following individuals contributed to the implementation, experimentation, an
 | **Shivalingayya Yadrami** | Data Engineering |
 | **Shashanka N** | Machine Learning — AutoEncoder and Isolation Forest |
 | **Darshan H** | Integration Engineering — Digital Twin and System Testing |
-
----
-
-## Development
-
-### Installing Development Dependencies
-
-```bash
-pip install pytest-cov black flake8
-```
-
-### Running Tests
-
-```bash
-pytest tests/ -v --cov=framework --cov=models
-```
-
-### Code Formatting and Linting
-
-```bash
-black . --line-length=100
-flake8 . --max-line-length=100
-```
 
 ---
 
