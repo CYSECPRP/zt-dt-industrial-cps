@@ -1,5 +1,7 @@
 # Zero Trust-Enabled Digital Twins for Industrial CPS
 
+This project implements a Zero Trust-Enabled Digital Twin for securing Industrial Cyber-Physical Systems. It uses AutoEncoders and Isolation Forests to detect real-time anomalies in water distribution datasets like BATADAL. The goal is a 94.5% F1-Score with a sub-2-second response time to ensure industrial resilience.
+
 ## Project Overview
 Implementation of real-time anomaly detection for industrial control systems using Digital Twins and Zero Trust Architecture.
 
@@ -19,7 +21,7 @@ Implementation of real-time anomaly detection for industrial control systems usi
 ### Windows Setup
 ```powershell
 # Clone repository
-git clone https://github.com/shivu-07/zt-dt-industrial-cps.git
+git clone https://github.com/CYSECPRP/zt-dt-industrial-cps.git
 cd zt-dt-industrial-cps
 
 # Create virtual environment
@@ -57,47 +59,3 @@ pip install -r requirements.txt
 - F1-Score: 94.5%
 - False Positive Rate: <3%
 - Response Time: <2 seconds
-```
-
-**Save:** `Ctrl+S`
-
----
-
-**Create `.gitignore`:**
-
-Create new file: `.gitignore`
-```
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# Virtual Environment
-zt_dt_env/
-venv/
-ENV/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Data files (too large for Git)
-data/raw/*.csv
-data/raw/*.xlsx
-data/processed/*.npy
-data/processed/*.pkl
-
-# Model files (too large)
-*.h5
-*.keras
-models/autoencoder/checkpoints/*
-models/isolation_forest/*.pkl
-
-# VS Code
-.vscode/
-.cursor/
-
-# OS
-.DS_Store
-Thumbs.db
