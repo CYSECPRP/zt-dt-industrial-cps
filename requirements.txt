@@ -1,0 +1,24 @@
+# Core ML Libraries
+tensorflow>=2.16.1
+scikit-learn==1.3.2
+numpy>=1.24.0
+pandas==2.1.4
+scipy==1.11.4
+
+# Data Processing
+openpyxl==3.1.2
+h5py==3.10.0
+
+# Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Utilities
+tqdm==4.66.1
+
+# Testing
+pytest==7.4.3
+
+# Jupyter (optional)
+jupyter==1.0.0
+ipykernel==6.27.1
