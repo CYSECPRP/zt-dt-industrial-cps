@@ -1,3 +1,18 @@
+<div align="center">
+
+## 📄 Research Paper
+
+### **Zero Trust-Enabled Digital Twins for Real-Time Anomaly Detection in Industrial Cyber-Physical Systems**
+
+**Authors:** Team Members - Dayananda Sagar University  
+**Institution:** Dayananda Sagar University, India  
+**Date:** 2026  
+**Status:** Research & Development
+
+---
+
+</div>
+
 # Zero Trust-Enabled Digital Twins for Industrial CPS
 
 <div align="center">
