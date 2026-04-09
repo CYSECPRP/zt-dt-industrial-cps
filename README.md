@@ -452,23 +452,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ---
 
-## Citation
-
-If you use this framework or reference this work in your research, please cite the original paper:
-
-```bibtex
-@inproceedings{hemanthkumar2025ztdt,
-  title     = {Zero Trust-Enabled Digital Twins for Real-Time Anomaly Detection in Industrial Cyber Physical Systems},
-  author    = {Hemanth Kumar, G. and Shelke, Nilesh and Pimpalkar, Amit and Saini, Dilip Kumar Jang Bahadur and Prajwalasimha, S. N. and Dileep Kumar, Y.},
-  booktitle = {2025 Third International Conference on Networks, Multimedia and Information Technology (NMITCON)},
-  year      = {2025},
-  publisher = {IEEE},
-  doi       = {10.1109/NMITCON65824.2025.11188236}
-}
-```
-
----
-
 ## Disclaimer
 
 This implementation is intended for research and educational purposes. When deployed in production environments, ensure compliance with:
