@@ -2,8 +2,6 @@
 
 <br>
 
-# 🛡️ ZT-DT Industrial CPS
-
 ### Zero Trust-Enabled Digital Twins for Real-Time Anomaly Detection<br>in Industrial Cyber-Physical Systems
 
 <br>
