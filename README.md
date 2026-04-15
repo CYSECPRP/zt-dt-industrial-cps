@@ -47,18 +47,20 @@
 <div align="center">
 
 ```
-╔══════════════════════════════════════════════════════════════════════════╗
-║                                                                        ║
-║   🏭  PROBLEM    Industrial CPS face cyberattacks that bypass           ║
-║                  traditional perimeter security models                  ║
-║                                                                        ║
-║   💡  SOLUTION   Digital Twin + Dual ML Models + Zero Trust Engine      ║
-║                  for continuous, real-time threat detection             ║
-║                                                                        ║
-║   📊  RESULTS    94.5% F1-Score  ·  2.8% FPR  ·  <2s Response Time     ║
-║                  Validated on BATADAL & SWaT industrial datasets       ║
-║                                                                        ║
-╚══════════════════════════════════════════════════════════════════════════╝
++----------+--------------------------------------------------------------+
+|          |                                                              |
+| PROBLEM  |  Industrial CPS face cyberattacks that bypass                |
+|          |  traditional perimeter security models                       |
+|          |                                                              |
++----------+--------------------------------------------------------------+
+| SOLUTION |  Digital Twin + Dual ML Models + Zero Trust Engine            |
+|          |  for continuous, real-time threat detection                   |
+|          |                                                              |
++----------+--------------------------------------------------------------+
+| RESULTS  |  94.5% F1-Score  |  2.8% FPR  |  <2s Response Time          |
+|          |  Validated on BATADAL & SWaT industrial datasets             |
+|          |                                                              |
++----------+--------------------------------------------------------------+
 ```
 
 `Zero Trust Security` &nbsp;·&nbsp; `Digital Twins` &nbsp;·&nbsp; `Anomaly Detection` &nbsp;·&nbsp; `Industrial CPS` &nbsp;·&nbsp; `Real-Time ML`
@@ -104,51 +106,58 @@
 
 ## 🔍 1. Problem Statement
 
-<table>
-<tr>
-<td width="60%">
+Industrial Cyber-Physical Systems (CPS) operate critical infrastructure — water treatment plants, power grids, manufacturing lines — yet remain protected by **outdated perimeter-based security** that assumes trust once inside the network boundary. The result is delayed detection, operational disruption, and higher safety risk.
 
-Industrial Cyber-Physical Systems (CPS) operate critical infrastructure — water treatment plants, power grids, manufacturing lines — yet remain protected by **outdated perimeter-based security** that assumes trust once inside the network boundary.
-
-**This creates four critical vulnerabilities:**
+**Current Security Gaps:**
 
 | Gap | Impact |
 |-----|--------|
-| 🚪 **Perimeter Trust Model** | Attackers get unrestricted access once past the boundary |
-| ⏱️ **Delayed Detection** | Rule-based IDS discovers breaches hours or days later |
-| 🔎 **No Historical Context** | Cannot detect slow-drift attacks that evolve over time |
-| 🧑 **Manual Response** | Human intervention required, introducing dangerous delays |
+| 🚪 **Perimeter Trust Model** | Traditional defenses assume trust inside the network boundary, allowing attackers unrestricted access once they breach the perimeter |
+| ⏱️ **Delayed Detection** | Rule-based IDS systems often discover intrusions hours or days after the attack has begun, by which time systems have been manipulated |
+| 🔎 **Limited Context** | Standard anomaly detection lacks historical context, making it vulnerable to sophisticated attacks that slowly deviate from normal baselines |
+| 🧑 **Manual Responses** | Most anomaly detection systems require human intervention to confirm threats and trigger mitigation, introducing dangerous delays |
 
-</td>
-<td width="40%" align="center">
+**The Zero Trust Approach:**
 
+Instead of trusting a user or system once authenticated, zero trust continuously verifies all activities against behavioral baselines. Every transaction is evaluated in real time, combining:
+
+- **Behavioral Prediction:** Machine learning models predict expected normal behavior based on historical patterns
+- **Continuous Verification:** Every sensor reading is scored against these predictions with no "trust" given by default
+- **Adaptive Enforcement:** Access control policies adjust dynamically — not just blocking but restricting or isolating suspicious components
+
+The goal of this framework is to provide continuous verification, real-time anomaly detection, and adaptive access control through a zero-trust design optimized for industrial environments.
+
+### Traditional Security vs. Zero Trust
+
+```mermaid
+graph LR
+    subgraph TRADITIONAL["❌ Traditional Perimeter Security"]
+        direction TB
+        A["🔓 Trust Boundary"] --> B["Trusted Zone"]
+        B --> C["Attacker moves freely"]
+        C --> D["Breach detected hours later"]
+    end
+
+    subgraph ZEROTRUST["✅ Zero Trust Architecture"]
+        direction TB
+        E["🔒 Never Trust"] --> F["Verify ALL entities"]
+        F --> G["Verify at ALL times"]
+        G --> H["🛡️ Immediate response"]
+    end
+
+    TRADITIONAL -. "Our Approach" .-> ZEROTRUST
+
+    style TRADITIONAL fill:#2d1117,stroke:#f85149,color:#fff
+    style ZEROTRUST fill:#0d1f0d,stroke:#3fb950,color:#fff
+    style A fill:#1a1a2e,stroke:#f85149,color:#fff
+    style B fill:#1a1a2e,stroke:#f85149,color:#fff
+    style C fill:#1a1a2e,stroke:#f85149,color:#fff
+    style D fill:#1a1a2e,stroke:#f85149,color:#fff
+    style E fill:#0f3460,stroke:#3fb950,color:#fff
+    style F fill:#0f3460,stroke:#3fb950,color:#fff
+    style G fill:#0f3460,stroke:#3fb950,color:#fff
+    style H fill:#0f3460,stroke:#3fb950,color:#fff
 ```
-  Traditional Security
-  ━━━━━━━━━━━━━━━━━━━━
-  
-  🔓 Trust Boundary
-  ┌──────────────────┐
-  │ ✅ Trusted Zone   │
-  │  ┌──────────┐    │
-  │  │ Attacker │ ← Free movement
-  │  │ inside   │    │
-  │  └──────────┘    │
-  │                  │
-  └──────────────────┘
-  
-  ⬇ Our Approach ⬇
-  
-  🔒 Zero Trust
-  ┌──────────────────┐
-  │ 🔍 Verify ALL     │
-  │ 🔍 Verify ALWAYS  │
-  │ 🔍 Verify NOW     │
-  └──────────────────┘
-```
-
-</td>
-</tr>
-</table>
 
 > **Our Solution:** A **Zero Trust** framework that *never* trusts, *always* verifies — combining **Digital Twin** behavioral modeling with **dual ML anomaly detection** and **adaptive access control** for continuous, real-time threat response.
 
@@ -445,29 +454,33 @@ def inject_anomaly(sensor_data):
 
 ### 4.4 🔄 Integration Flow
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                    CONTINUOUS MONITORING PIPELINE                        │
-│                                                                         │
-│   Real-time CPS Data Stream                                             │
-│         │                                                               │
-│         ▼                                                               │
-│   ┌─────────────────────┐                                               │
-│   │  Digital Twin Core  │  Reads: [flow, pressure, temp, level, speed]  │
-│   │  Model: IF Ensemble │  Output: anomaly_score (0.0 – 1.0)           │
-│   └──────────┬──────────┘                                               │
-│              ▼                                                          │
-│   ┌─────────────────────┐                                               │
-│   │  Zero Trust Engine  │  Updates: Trust(t) = EMA(Trust(t-1), score)   │
-│   │  Policy: Threshold  │  Output: {ALLOW, RESTRICT, ISOLATE}          │
-│   └──────────┬──────────┘                                               │
-│              ▼                                                          │
-│   ┌─────────────────────┐                                               │
-│   │  Enforce & Log      │  Apply action → Log decision → Audit trail   │
-│   └──────────┬──────────┘                                               │
-│              ▼                                                          │
-│   [Next Observation in ~100ms]                                          │
-└─────────────────────────────────────────────────────────────────────────┘
+```mermaid
+graph LR
+    subgraph PIPELINE["🔄 CONTINUOUS MONITORING PIPELINE"]
+        direction LR
+        
+        STREAM["📤 Real-time CPS Data Stream"]
+        
+        DT["<b>Digital Twin Core</b><br/>Model: IF Ensemble<hr/><i>Reads: [flow, pressure, temp, level, speed]</i><br/><i>Output: anomaly_score (0.0 – 1.0)</i>"]
+        
+        ZTE["<b>Zero Trust Engine</b><br/>Policy: Threshold<hr/><i>Updates: Trust(t) = EMA(Trust(t-1), score)</i><br/><i>Output: {ALLOW, RESTRICT, ISOLATE}</i>"]
+        
+        LOG["<b>Enforce & Log</b><hr/><i>Apply action → Log decision → Audit trail</i>"]
+        
+        NEXT["⏱️ [Next Observation in ~100ms]"]
+        
+        STREAM --> DT
+        DT --> ZTE
+        ZTE --> LOG
+        LOG --> NEXT
+    end
+
+    style PIPELINE fill:#0d1117,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style STREAM fill:#1a1a2e,stroke:#3b82f6,color:#fff
+    style DT fill:#16213e,stroke:#0EA5E9,color:#fff
+    style ZTE fill:#1a1a2e,stroke:#F59E0B,color:#fff
+    style LOG fill:#16213e,stroke:#8B5CF6,color:#fff
+    style NEXT fill:#1a1a2e,stroke:#22C55E,color:#fff
 ```
 
 ---
@@ -569,14 +582,12 @@ The project includes a **Streamlit-based Enterprise SOC dashboard** (`dashboard.
 
 <div align="center">
 
-```
-  CPU Usage (%)
-      36.8  │                                  ● Rule-Based IDS
-      32.2  │                         ● Isolation Forest
-      28.5  │                   ● AutoEncoder
-      24.7  │          ★ ZT-DT (Proposed)        ← Best balance
-             └──────────────────────────────────────
-             1.4      1.6      1.7      2.1     Latency (s)
+```mermaid
+xychart-beta
+    title "CPU Usage vs Latency Trade-off (Lower is Better)"
+    x-axis "Detection Method & Latency" ["AutoEncoder (1.4s)", "Isolation Forest (1.6s)", "ZT-DT Proposed (1.7s)", "Rule-Based IDS (2.1s)"]
+    y-axis "CPU Usage (%)" 20 --> 40
+    bar [28.5, 32.2, 24.7, 36.8]
 ```
 
 </div>
