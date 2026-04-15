@@ -1,14 +1,21 @@
 <div align="center">
 
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                        PROJECT HEADER                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<img src="https://img.shields.io/badge/🛡️-ZT--DT_Industrial_CPS-000000?style=for-the-badge&labelColor=0d1117" alt="ZT-DT">
+
 <br>
 
-### Zero Trust-Enabled Digital Twins for Real-Time Anomaly Detection<br>in Industrial Cyber-Physical Systems
+# Zero Trust-Enabled Digital Twins for Real-Time<br>Anomaly Detection in Industrial Cyber-Physical Systems
 
 <br>
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16+-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3.2-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![License](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
 
 [![IEEE Published](https://img.shields.io/badge/📄%20Published-IEEE%20NMITCON%202025-8B5CF6?style=for-the-badge)](https://doi.org/10.1109/NMITCON65824.2025.11188236)
@@ -33,257 +40,521 @@
 
 </div>
 
----
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                        AT A GLANCE                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 
-## 📌 At a Glance
+<div align="center">
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  🏭 Problem   Industrial CPS face cyberattacks that bypass          │
-│               traditional perimeter security                        │
-│                                                                     │
-│  💡 Solution  Digital Twin + Dual ML Models + Zero Trust Engine     │
-│               for continuous, real-time threat detection            │
-│                                                                     │
-│  📊 Results   94.5% F1-Score · 2.8% FPR · <2s Response Time        │
-│               Tested on BATADAL & SWaT industrial datasets          │
-└─────────────────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                        ║
+║   🏭  PROBLEM    Industrial CPS face cyberattacks that bypass           ║
+║                  traditional perimeter security models                  ║
+║                                                                        ║
+║   💡  SOLUTION   Digital Twin + Dual ML Models + Zero Trust Engine      ║
+║                  for continuous, real-time threat detection             ║
+║                                                                        ║
+║   📊  RESULTS    94.5% F1-Score  ·  2.8% FPR  ·  <2s Response Time     ║
+║                  Validated on BATADAL & SWaT industrial datasets       ║
+║                                                                        ║
+╚══════════════════════════════════════════════════════════════════════════╝
 ```
 
 `Zero Trust Security` &nbsp;·&nbsp; `Digital Twins` &nbsp;·&nbsp; `Anomaly Detection` &nbsp;·&nbsp; `Industrial CPS` &nbsp;·&nbsp; `Real-Time ML`
 
----
-
-## 📋 Table of Contents
-
-| # | Section |
-|---|---------|
-| 1 | [🔍 Problem Statement](#1--problem-statement) |
-| 2 | [🏗️ Proposed Architecture](#2--proposed-architecture) |
-| 3 | [⚙️ How It Works](#3--how-it-works) |
-| 4 | [📐 Mathematical Model](#4--mathematical-model) |
-| 5 | [🔄 Core Algorithm](#5--core-algorithm) |
-| 6 | [📊 Implementation Results](#6--implementation-results) |
-| 7 | [🏛️ Code Architecture](#7--code-architecture) |
-| 8 | [🔧 Core Modules — Deep Dive](#8--core-modules--deep-dive) |
-| 9 | [🚀 Setup & Usage](#9--setup--usage) |
-| 10 | [⚠️ Implementation Limitations](#10--implementation-limitations) |
+</div>
 
 ---
 
-## 1. 🔍 Problem Statement
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                      TABLE OF CONTENTS                             -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 
-> *"How can we secure industrial systems against attacks that traditional security cannot detect?"*
+<details open>
+<summary><h2>📋 Table of Contents</h2></summary>
 
-Industrial Cyber-Physical Systems control **critical infrastructure** — water treatment plants, power grids, and manufacturing facilities. These systems are increasingly targeted by attacks that bypass traditional perimeter defenses:
+&nbsp;
+
+| # | Section | Description |
+|:-:|---------|-------------|
+| 1 | [🔍 Problem Statement](#-1-problem-statement) | Why traditional ICS security fails |
+| 2 | [🏗️ System Architecture](#️-2-system-architecture) | Three-layer defense design |
+| 3 | [⚙️ How It Works](#️-3-how-it-works) | End-to-end pipeline walkthrough |
+| 4 | [🔧 Core Modules](#-4-core-modules) | Deep dive into each component |
+| 5 | [🖥️ Live Dashboard](#️-5-live-dashboard) | Real-time SOC monitoring UI |
+| 6 | [📊 Results & Benchmarks](#-6-results--benchmarks) | Performance metrics & comparisons |
+| 7 | [🗂️ Project Structure](#️-7-project-structure) | Codebase organization |
+| 8 | [🚀 Quick Start](#-8-quick-start) | Installation & usage guide |
+| 9 | [📦 Datasets](#-9-datasets) | BATADAL & SWaT benchmarks |
+| 10 | [⚠️ Limitations](#️-10-limitations) | Known constraints |
+| 11 | [🤝 Contributing](#-11-contributing) | How to contribute |
+| 12 | [👥 Team](#-12-team) | Contributors & mentor |
+| 13 | [⚖️ Disclaimer](#️-13-disclaimer) | Legal & compliance notes |
+
+&nbsp;
+
+</details>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                     PROBLEM STATEMENT                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 🔍 1. Problem Statement
 
 <table>
 <tr>
-<td width="50%">
+<td width="60%">
 
-**🚨 Threat Vectors**
+Industrial Cyber-Physical Systems (CPS) operate critical infrastructure — water treatment plants, power grids, manufacturing lines — yet remain protected by **outdated perimeter-based security** that assumes trust once inside the network boundary.
 
-- 🔓 **Insider Threats** — Authorized users with malicious intent
-- 📦 **Supply Chain Attacks** — Compromised third-party components
-- 🕵️ **Advanced Persistent Threats** — Long-term stealthy intrusions
-- 💣 **Zero-Day Exploits** — Unknown vulnerabilities
+**This creates four critical vulnerabilities:**
+
+| Gap | Impact |
+|-----|--------|
+| 🚪 **Perimeter Trust Model** | Attackers get unrestricted access once past the boundary |
+| ⏱️ **Delayed Detection** | Rule-based IDS discovers breaches hours or days later |
+| 🔎 **No Historical Context** | Cannot detect slow-drift attacks that evolve over time |
+| 🧑 **Manual Response** | Human intervention required, introducing dangerous delays |
 
 </td>
-<td width="50%">
+<td width="40%" align="center">
 
-**⚡ Resulting Risks**
-
-- 🏭 **Operational Disruption** — Physical damage or service outages
-- ☠️ **Safety Hazards** — Systems endangering human life
-- 💰 **Economic Impact** — Millions in lost productivity
-- 🕐 **Detection Delays** — Threats detected hours or days too late
+```
+  Traditional Security
+  ━━━━━━━━━━━━━━━━━━━━
+  
+  🔓 Trust Boundary
+  ┌──────────────────┐
+  │ ✅ Trusted Zone   │
+  │  ┌──────────┐    │
+  │  │ Attacker │ ← Free movement
+  │  │ inside   │    │
+  │  └──────────┘    │
+  │                  │
+  └──────────────────┘
+  
+  ⬇ Our Approach ⬇
+  
+  🔒 Zero Trust
+  ┌──────────────────┐
+  │ 🔍 Verify ALL     │
+  │ 🔍 Verify ALWAYS  │
+  │ 🔍 Verify NOW     │
+  └──────────────────┘
+```
 
 </td>
 </tr>
 </table>
 
-**The core problem:** Standard security assumes trust within the perimeter. Once inside, attackers have unrestricted access to manipulate sensors, actuators, and control systems.
-
-**What's needed →** A framework providing **continuous verification**, **real-time anomaly detection**, and **adaptive access control** based on behavioral trust assessment.
+> **Our Solution:** A **Zero Trust** framework that *never* trusts, *always* verifies — combining **Digital Twin** behavioral modeling with **dual ML anomaly detection** and **adaptive access control** for continuous, real-time threat response.
 
 ---
 
-## 2. 🏗️ Proposed Architecture
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                     SYSTEM ARCHITECTURE                            -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 
-ZT-DT Industrial CPS implements Zero Trust security through **three integrated components**:
+## 🏗️ 2. System Architecture
 
-| # | Component | Role | Key Output |
-|---|-----------|------|------------|
-| 1️⃣ | **Digital Twin Core** | Virtual representation & anomaly detection | Real-time anomaly scores |
-| 2️⃣ | **Zero Trust Engine** | Continuous trust assessment & policy enforcement | Dynamic access decisions |
-| 3️⃣ | **Attack Injector** | Simulated attack scenarios for testing | Realistic threat simulation |
+The framework is composed of **three coordinated subsystems** that work in a closed-loop pipeline:
 
-### 🖥️ System Dashboard
+<table>
+<tr>
+<th align="center">🔮 Digital Twin Core</th>
+<th align="center">🛡️ Zero Trust Engine</th>
+<th align="center">💉 Attack Injector</th>
+</tr>
+<tr>
+<td>
 
-![First Dashboard](images/First_Dashboard.png)
-*Initial system dashboard showing framework initialization and component status*
+Virtual model of normal CPS behavior. Detects deviations via Isolation Forest ensemble scoring.
+
+**Output:** Anomaly score `(0–1)`
+
+</td>
+<td>
+
+Evaluates anomaly evidence using EMA-based trust scoring with adaptive thresholds.
+
+**Output:** `ALLOW` · `RESTRICT` · `ISOLATE`
+
+</td>
+<td>
+
+Simulates real-world attack scenarios (scaling, spoofing, drift) for validation.
+
+**Output:** Labeled attack ground truth
+
+</td>
+</tr>
+</table>
+
+### Architecture Diagram
+
+```mermaid
+flowchart TD
+    A["🏭 Physical CPS Components\n(Sensors / Actuators)"]
+    B["🔮 Digital Twin Module\n(Behavior Prediction)"]
+    C["🔍 Anomaly Detection Engine\n(Isolation Forest + AutoEncoder)"]
+    D["🛡️ Zero Trust Policy Engine\n(Trust Scoring + EMA)"]
+    E["🚦 Access Decision Module\nALLOW · RESTRICT · ISOLATE"]
+    F["📊 MONITOR"]
+    G["📝 LOG & UPDATE"]
+    H["🔒 ENFORCE"]
+
+    A -->|"Real-time Sensor Data"| B
+    B -->|"Predicted Behavior d̂"| C
+    C -->|"Anomaly Score Aᵢ"| D
+    D -->|"Trust Score Tᵢ(t)"| E
+    E --> F
+    E --> G
+    E --> H
+
+    style A fill:#1a1a2e,stroke:#00B4D8,color:#fff
+    style B fill:#16213e,stroke:#0EA5E9,color:#fff
+    style C fill:#1a1a2e,stroke:#F59E0B,color:#fff
+    style D fill:#16213e,stroke:#8B5CF6,color:#fff
+    style E fill:#1a1a2e,stroke:#EF4444,color:#fff
+    style F fill:#0f3460,stroke:#22C55E,color:#fff
+    style G fill:#0f3460,stroke:#22C55E,color:#fff
+    style H fill:#0f3460,stroke:#22C55E,color:#fff
+```
+
+### 📸 System Dashboard Preview
+
+<table>
+<tr>
+<td align="center">
+
+![Dashboard Initialization](images/First_Dashboard.png)
+*SOC Dashboard — Initial State*
+
+</td>
+<td align="center">
+
+![Live Monitoring](images/No_Breach_Detected.png)
+*Live Monitoring — Secure State*
+
+</td>
+</tr>
+</table>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                       HOW IT WORKS                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## ⚙️ 3. How It Works
+
+The framework operates through **three integrated phases** in a continuous feedback loop:
+
+<table>
+<tr><td>
+
+### Phase 1 — Training & Baseline Establishment
+
+```
+📥 Collect clean operational data (50-100 timesteps)
+     ↓
+🧠 Train Isolation Forest on normal behavior distribution
+     ↓
+🎯 Calibrate anomaly thresholds via grid search + 5-fold CV
+     ↓
+💾 Store model weights & initial trust scores
+```
+
+</td></tr>
+<tr><td>
+
+### Phase 2 — Real-Time Monitoring & Trust Evaluation
+
+```
+📡 Ingest streaming sensor data (no buffering)
+     ↓
+🔮 Digital Twin computes reconstruction error
+     ↓
+🌲 Isolation Forest scores: normal (−1) or anomalous (+1)
+     ↓
+📊 Normalize to 0–1 anomaly score
+     ↓
+🛡️ Update trust via EMA: Trust(t) = α × Trust(t-1) + (1−α) × (1 − Anomaly)
+     ↓
+🚦 Apply policy:  T ≥ 0.80 → ALLOW  │  0.50 ≤ T < 0.80 → RESTRICT  │  T < 0.50 → ISOLATE
+```
+
+</td></tr>
+<tr><td>
+
+### Phase 3 — Attack Simulation & Validation
+
+```
+💉 Inject controlled anomalies (scaling, spoofing, drift)
+     ↓
+📏 Measure TPR, FPR, detection latency
+     ↓
+📈 Evaluate Precision, Recall, F1-Score against ground truth
+     ↓
+🔄 Fine-tune thresholds without disrupting live operations
+```
+
+</td></tr>
+</table>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                        CORE MODULES                                -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 🔧 4. Core Modules
+
+### 4.1 🔮 Digital Twin Core
+
+> **`framework/digital_twin/dt_core.py`**
+
+The behavioral foundation of the system — models expected plant operation and identifies deviations.
+
+<table>
+<tr>
+<td width="55%">
+
+**Isolation Forest Ensemble:**
+- 100 estimators, contamination rate = 0.05
+- Works in high-dimensional space without distance metrics
+- Sub-millisecond inference (~1ms per sample)
+- Trained on 50 timesteps of clean baseline data
+
+**Sensor Inputs:**
+| Sensor | Baseline | Noise σ |
+|--------|----------|---------|
+| Flow Rate | 50.0 | ±2.0 |
+| Pressure | 120.0 | ±5.0 |
+| Temperature | 22.5 | ±0.5 |
+| Tank Level | 8.0 | ±0.2 |
+| Pump Speed | 1500.0 | ±10.0 |
+
+</td>
+<td width="45%">
+
+```python
+class DigitalTwin:
+    def __init__(self):
+        self.model = IsolationForest(
+            contamination=0.05,
+            random_state=42
+        )
+        self._baseline_training()
+
+    def evaluate(self, sensor_data):
+        """Returns 1 (anomaly) or 0 (normal)"""
+        features = np.array(
+            [list(sensor_data.values())]
+        )
+        prediction = self.model.predict(
+            features
+        )[0]
+        return 1 if prediction == -1 else 0
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+### 4.2 🛡️ Zero Trust Policy Engine
+
+> **`framework/zero_trust_engine/zt_policy.py`**
+
+Converts point-in-time anomaly scores into **persistent trust states** with dynamic access control.
+
+<table>
+<tr>
+<td width="50%">
+
+**Trust Formula (EMA):**
+
+```
+Trust(t) = α × Trust(t-1) + (1−α) × Behavior_Score
+```
+
+| Parameter | Value | Purpose |
+|-----------|-------|---------|
+| α (alpha) | 0.80 | 80% history weight |
+| τ_high | 0.80 | ALLOW threshold |
+| τ_low | 0.50 | ISOLATE threshold |
+| Initial Trust | 1.0 | Start fully trusted |
+
+</td>
+<td width="50%">
+
+**Policy Actions:**
+
+| Action | Trust Range | Response |
+|--------|:-----------:|----------|
+| ✅ **ALLOW** | `T > 0.80` | Full access, normal ops |
+| ⚠️ **RESTRICT** | `0.50 ≤ T ≤ 0.80` | Read-only, rate limiting |
+| ⛔ **ISOLATE** | `T < 0.50` | Network isolation, alert |
+
+</td>
+</tr>
+</table>
+
+**Trust State Transition Example:**
+
+```
+Time  │ Anomaly │ Calculation                              │ Trust  │ Action
+──────┼─────────┼──────────────────────────────────────────┼────────┼──────────
+t₀    │  0.00   │ 0.80 × 1.00 + 0.20 × 1.00 = 1.00       │  1.00  │ ✅ ALLOW
+t₁    │  0.95   │ 0.80 × 1.00 + 0.20 × 0.05 = 0.81       │  0.81  │ ✅ ALLOW
+t₂    │  0.98   │ 0.80 × 0.81 + 0.20 × 0.02 = 0.65       │  0.65  │ ⚠️ RESTRICT
+t₃    │  1.00   │ 0.80 × 0.65 + 0.20 × 0.00 = 0.52       │  0.52  │ ⚠️ RESTRICT
+t₄    │  1.00   │ 0.80 × 0.52 + 0.20 × 0.00 = 0.42       │  0.42  │ ⛔ ISOLATE
+```
+
+---
+
+### 4.3 💉 Attack Injector
+
+> **`utils/attack_injector.py`**
+
+Simulates realistic threat scenarios for validation without exposing live systems to actual cyberattacks.
+
+| Attack Type | Method | Example |
+|-------------|--------|---------|
+| **Data Scaling** | Multiplies sensor values by 7.5× | Temperature 22°C → 165°C |
+| **Sensor Spoofing** | Replaces genuine readings with falsified values | Pressure 120 bar → 500 bar |
+| **Gradual Drift** | Slowly increases deviation over timesteps | +1°C per cycle for 50 cycles |
+
+```python
+def inject_anomaly(sensor_data):
+    """Simulates severe data manipulation attack on CPS."""
+    anomalous_data = {}
+    multiplier = 7.5  # Extreme manipulation
+    for key, value in sensor_data.items():
+        anomalous_data[key] = value * multiplier
+    return anomalous_data
+```
+
+---
+
+### 4.4 🔄 Integration Flow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    CONTINUOUS MONITORING PIPELINE                        │
+│                                                                         │
+│   Real-time CPS Data Stream                                             │
+│         │                                                               │
+│         ▼                                                               │
+│   ┌─────────────────────┐                                               │
+│   │  Digital Twin Core  │  Reads: [flow, pressure, temp, level, speed]  │
+│   │  Model: IF Ensemble │  Output: anomaly_score (0.0 – 1.0)           │
+│   └──────────┬──────────┘                                               │
+│              ▼                                                          │
+│   ┌─────────────────────┐                                               │
+│   │  Zero Trust Engine  │  Updates: Trust(t) = EMA(Trust(t-1), score)   │
+│   │  Policy: Threshold  │  Output: {ALLOW, RESTRICT, ISOLATE}          │
+│   └──────────┬──────────┘                                               │
+│              ▼                                                          │
+│   ┌─────────────────────┐                                               │
+│   │  Enforce & Log      │  Apply action → Log decision → Audit trail   │
+│   └──────────┬──────────┘                                               │
+│              ▼                                                          │
+│   [Next Observation in ~100ms]                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                       LIVE DASHBOARD                               -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 🖥️ 5. Live Dashboard
+
+The project includes a **Streamlit-based Enterprise SOC dashboard** (`dashboard.py`) for real-time visualization and interactive attack simulation.
+
+### Dashboard Features
+
+| Feature | Description |
+|---------|-------------|
+| 📊 **Live Monitoring** | Real-time Plotly charts for Trust Score, Anomaly Score, and Sensor Flow Rate |
+| 🌐 **CPS Topology** | Industrial Network status view with trust-level progress bars |
+| 📝 **Audit Logs** | Color-coded Zero Trust Policy decision logs with full history |
+| 💉 **Attack Injection** | One-click targeted attack injection for live testing |
+| ⚙️ **Simulation Controls** | Adjustable tick rate, start/stop, and environment reset |
+
+### 📸 Dashboard Screenshots
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+![Secure State](images/No_Breach_Detected.png)
+*🟢 System SECURE — Trust: 1.0 — ALLOW*
+
+</td>
+<td align="center" width="50%">
+
+![Breach Detected](images/Breach_Detected.png)
+*🔴 BREACH DETECTED — Trust: 0.79 — RESTRICT*
+
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
 
 ![Live Graph](images/Live_Graph.png)
-*Live terminal dashboard for real-time monitoring*
+*📈 Zero Trust Evaluation Engine — Live Graph*
+
+</td>
+<td align="center" width="50%">
+
+![Node Trust Level](images/Node_Trust_Level.png)
+*🌐 CPS Topology — Node Trust Level*
+
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+
+![Audit Logs](images/Logs.png)
+*📝 Audit Logs — Zero Trust Policy Decision History*
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 3. ⚙️ How It Works
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                    RESULTS & BENCHMARKS                            -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 
-The framework operates through three integrated phases:
+## 📊 6. Results & Benchmarks
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│  PHASE 1 · Training & Baseline Establishment                         │
-│                                                                      │
-│  1. Collect normal operational data from industrial sensors          │
-│  2. Train AutoEncoder + Isolation Forest on baseline data            │
-│  3. Calibrate anomaly thresholds via grid search optimization        │
-└──────────────────────────────────────────────────────────────────────┘
-                               ↓
-┌──────────────────────────────────────────────────────────────────────┐
-│  PHASE 2 · Real-Time Monitoring & Trust Evaluation                   │
-│                                                                      │
-│  1. Ingest continuous sensor data from CPS components               │
-│  2. Evaluate via dual-model (AE reconstruction + IF outlier score)   │
-│  3. Calculate trust score via exponential moving average             │
-│  4. Enforce access policy: ALLOW / RESTRICT / ISOLATE                │
-└──────────────────────────────────────────────────────────────────────┘
-                               ↓
-┌──────────────────────────────────────────────────────────────────────┐
-│  PHASE 3 · Attack Simulation & Validation                            │
-│                                                                      │
-│  1. Inject simulated attacks (spoofing, data injection, manipulation)│
-│  2. Measure true positive/negative rates and FPR                     │
-│  3. Evaluate response time and detection accuracy                    │
-└──────────────────────────────────────────────────────────────────────┘
-```
+### Accuracy & Detection Metrics
 
----
+<div align="center">
 
-## 4. 📐 Mathematical Model
+| Method | Precision (%) | Recall (%) | F1-Score (%) | Improvement |
+|--------|:---:|:---:|:---:|:---:|
+| 🥇 **ZT-DT (Proposed)** | **95.2** | **93.8** | **94.5** | — |
+| Isolation Forest Only | 91.0 | 88.7 | 89.8 | +4.7% |
+| AutoEncoder Only | 89.6 | 86.1 | 87.8 | +6.7% |
+| Rule-Based IDS | 84.2 | 82.5 | 83.3 | +11.2% |
 
-The ZT-DT framework uses five core equations to model dynamic behavior, assess risk, and enforce adaptive access control.
+</div>
 
-### Eq. 1 · Digital Twin Prediction
+### Efficiency & Resource Metrics
 
-Each CPS component $C_i$ is represented by a Digital Twin $DT_i$ predicting expected behavior:
-
-$$\hat{d}_{i,t} = f_{DT}(d_{i,t-1}, d_{i,t-2}, \ldots, d_{i,t-k}; \theta_{DT})$$
-
-| Symbol | Meaning |
-|--------|---------|
-| $\hat{d}_{i,t}$ | Predicted normal behavior |
-| $d_{i,t-k}$ | Past observations (k timesteps) |
-| $\theta_{DT}$ | AutoEncoder model weights |
-
-### Eq. 2 · Anomaly Score Calculation
-
-Anomalies are identified by comparing observed vs. predicted behavior:
-
-$$A_i = \|d_{i,t} - \hat{d}_{i,t}\| + \lambda \cdot KL(p_{current} \| p_{historical})$$
-
-- **First term** — Captures immediate behavioral deviations (L2 distance)
-- **Second term** — Accounts for distributional shifts (KL divergence)
-- **$\lambda$** — Adjusts sensitivity to contextual changes
-
-### Eq. 3 · Dynamic Trust Score Update
-
-Trust scores integrate recent anomalies with historical context via exponential moving average:
-
-$$T_i(t) = \alpha \cdot T_i(t-1) + (1-\alpha) \cdot \left(1 - \frac{A_i}{A_{max}}\right)$$
-
-- **$\alpha \in [0,1]$** — Weight of historical trust
-- **$A_{max}$** — Normalizes anomaly scores to [0,1]
-
-### Eq. 4 · Zero Trust Policy Decision
-
-$$\text{Decision}(T_i) = \begin{cases}
-\text{Allow} & \text{if } T_i \geq \tau_{high} \\
-\text{Restrict} & \text{if } \tau_{low} \leq T_i < \tau_{high} \\
-\text{Isolate} & \text{if } T_i < \tau_{low}
-\end{cases}$$
-
-> Default thresholds: $\tau_{high} = 0.80$, $\tau_{low} = 0.50$
-
-### Eq. 5 · Model Parameter Update
-
-Closed-loop feedback refines the Digital Twin through gradient descent:
-
-$$\theta_{DT}(t+1) = \theta_{DT}(t) - \eta \nabla L(d_{i,t}, \hat{d}_{i,t})$$
-
-- **$\eta$** — Learning rate
-- **$L$** — Mean Squared Error reconstruction loss
-
----
-
-## 5. 🔄 Core Algorithm
-
-### Algorithm 1: ZT-DT Anomaly Detection and Access Control
-
-```
-Input:  Real-time CPS data stream D = {d₁, d₂, ..., dₙ}
-Output: Access control decision (Allow, Restrict, Isolate)
-
- 1:  Initialize Digital Twin models for all CPS components
- 2:  Initialize Zero Trust Policy Engine (ZTP)
- 3:  for each time interval t do
- 4:    for each CPS component Cᵢ do
- 5:      Receive real-time data dᵢ,ₜ from Cᵢ
- 6:      Feed dᵢ,ₜ into Digital Twin model DTᵢ
- 7:      Predict expected behavior d̂ᵢ,ₜ using DTᵢ
- 8:      Compute anomaly score Aᵢ using Eq. 2
- 9:      Update trust score Tᵢ = update_trust(Tᵢᵖʳᵉᵛ, Aᵢ)
-10:     if Aᵢ > Anomaly_Threshold then
-11:       Flag Cᵢ as anomalous
-12:     end if
-13:     Access_Decision ← ZTP.evaluate_policy(Tᵢ)
-14:     if Access_Decision == "Isolate" then
-15:       Block all communication Cᵢ
-16:     else if Access_Decision == "Restrict" then
-17:       Limit Cᵢ's functionality
-18:     else
-19:       Allow normal operation
-20:     end if
-21:   end for
-22:   Log all trust scores, anomalies, and decisions
-23: end for
-```
-
----
-
-## 6. 📊 Implementation Results
-
-### 🧪 Experimental Setup
-
-| Parameter | Details |
-|-----------|---------|
-| **Environment** | Python-based simulation with socket communication |
-| **Components** | Virtual sensors, actuators, and PLC |
-| **AE Optimization** | Grid search on latent dims (8–32), dropout (0.1–0.3), 5-fold CV |
-| **IF Optimization** | Contamination rate tuning, 100 estimators |
-| **Data Split** | 70% training / 30% testing — 60-timestep sliding window |
-| **Hardware** | Intel i7, 16GB RAM |
-| **Datasets** | SWaT (Secure Water Treatment) · BATADAL |
-
----
-
-### 📈 Performance Results
-
-**TABLE I: Accuracy & Detection Metrics**
-
-| Method | Precision (%) | Recall (%) | F1-Score (%) |
-|--------|:---:|:---:|:---:|
-| 🥇 **ZT-DT (Proposed)** | **95.2** | **93.8** | **94.5** |
-| AutoEncoder Only | 89.6 | 86.1 | 87.8 |
-| Isolation Forest Only | 91.0 | 88.7 | 89.8 |
-| Rule-Based IDS | 84.2 | 82.5 | 83.3 |
-
-> ✅ **Key Finding:** ZT-DT achieves **9–12% improvement** in F1-Score over all baseline methods.
-
-<br>
-
-**TABLE II: Efficiency & Resource Metrics**
+<div align="center">
 
 | Method | FPR (%) ↓ | Latency (s) ↓ | CPU Usage (%) ↓ |
 |--------|:---:|:---:|:---:|
@@ -292,180 +563,126 @@ Output: Access control decision (Allow, Restrict, Isolate)
 | Isolation Forest Only | 5.5 | 1.6 | 32.2 |
 | Rule-Based IDS | 8.1 | 2.1 | 36.8 |
 
-> ✅ **Key Finding:** ZT-DT reduces False Positive Rate to **2.8%** (vs 5.5–8.1%) while maintaining sub-2-second response time at lower CPU cost than all baselines.
+</div>
 
----
+### Performance Visualization
 
-### 🗺️ System Architecture
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│        Physical CPS Components (Sensors / Actuators)         │
-└────────────────────────┬─────────────────────────────────────┘
-                         │ Real-time Data
-                         ▼
-         ┌───────────────────────────┐
-         │    Digital Twin Module    │
-         │   (Behavior Prediction)   │
-         └────────────┬──────────────┘
-                      │ Predicted Behavior d̂
-                      ▼
-         ┌───────────────────────────┐
-         │  Anomaly Detection Engine │
-         │   (AutoEncoder + IF)      │
-         └────────────┬──────────────┘
-                      │ Anomaly Score Aᵢ
-                      ▼
-         ┌───────────────────────────┐
-         │  Zero Trust Policy Engine │
-         │   (Trust Scoring + EMA)   │
-         └────────────┬──────────────┘
-                      │ Trust Score Tᵢ(t)
-                      ▼
-         ┌───────────────────────────┐
-         │   Access Decision Module  │
-         │  ALLOW · RESTRICT · ISOLATE│
-         └────────────┬──────────────┘
-                      │
-      ┌───────────────┼───────────────┐
-      ▼               ▼               ▼
-   MONITOR       LOG & UPDATE      ENFORCE
-```
-
-### 📉 Latency vs. CPU Efficiency Trade-off
+<div align="center">
 
 ```
-CPU Usage (%)
-    36.8  │                                  ● Rule-Based IDS
-    32.2  │                         ● Isolation Forest
-    28.5  │                   ● AutoEncoder
-    24.7  │          ★ ZT-DT (Proposed)        ← Best balance
-           └──────────────────────────────────────
-           1.4      1.6      1.7      2.1     Latency (s)
+  CPU Usage (%)
+      36.8  │                                  ● Rule-Based IDS
+      32.2  │                         ● Isolation Forest
+      28.5  │                   ● AutoEncoder
+      24.7  │          ★ ZT-DT (Proposed)        ← Best balance
+             └──────────────────────────────────────
+             1.4      1.6      1.7      2.1     Latency (s)
 ```
+
+</div>
 
 ![Performance Graph](images/Graph.png)
-*F1-Score, Precision, Recall, and FPR comparison across detection methods*
+*F1-Score, Precision, Recall, and FPR comparison across all detection methods*
 
----
-
-### 💬 Result Analysis
+### 💡 Why ZT-DT Outperforms
 
 <table>
 <tr>
-<td width="50%">
+<td width="25%" align="center">
 
-**🎯 Detection Accuracy**
+**🔄 Dual Detection**
 
-ZT-DT reached **95.2% precision** and **93.8% recall**, beating all baselines by 4–11 percentage points through its integrated dual-model approach.
-
-**⚡ Response Time**
-
-Median response of **1.7 seconds** (max <2s) makes this suitable for real-time industrial deployments where delayed action risks system-wide disruption.
+IF catches extreme outliers; AE captures subtle patterns. Combined = fewer blind spots.
 
 </td>
-<td width="50%">
+<td width="25%" align="center">
 
-**✅ False Positive Rate**
+**📈 Trust History (EMA)**
 
-FPR reduced to just **2.8%** by combining behavioral baselines with trust history — distinguishing benign deviations from actual threats.
+Accumulates evidence over time — distinguishes noise from sustained attacks. Achieves 2.8% FPR.
 
-**💻 Resource Efficiency**
+</td>
+<td width="25%" align="center">
 
-Averaging **24.7% CPU** during peak load, the framework runs on standard desktop hardware without specialized infrastructure.
+**⚡ Continuous Verification**
+
+Evaluates every 100ms, not once per minute. Catches attacks before damage occurs.
+
+</td>
+<td width="25%" align="center">
+
+**🎯 Adaptive Thresholds**
+
+Empirically tuned via cross-validation. Balances early warning vs. operator fatigue.
 
 </td>
 </tr>
 </table>
 
-**Why the improvement?** The 9–12% F1 gain over baselines comes from the synergy of four integrated subsystems: Digital Twin behavioral prediction → Dual anomaly scoring (AE + IF) → Contextual EMA trust scoring → Trust-based dynamic policy enforcement.
-
 ---
 
-## 7. 🏛️ Code Architecture
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                     PROJECT STRUCTURE                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 🗂️ 7. Project Structure
 
 ```
 zt-dt-industrial-cps/
 │
-├── 📄 main.py                      # Main execution with live dashboard
-├── 📄 dashboard.py                 # Additional dashboard functionality
-├── 📄 requirements.txt             # Python dependencies
+├── 📄 main.py                          # CLI entry point — streaming anomaly detection
+├── 📊 dashboard.py                     # Streamlit SOC dashboard with live visualization
+├── 📋 requirements.txt                 # Python dependencies
 │
-├── 📁 framework/
-│   ├── 📁 digital_twin/
-│   │   ├── dt_core.py              # Digital Twin anomaly detection core
+├── 🔧 framework/                       # Core detection & policy modules
+│   ├── digital_twin/
+│   │   ├── dt_core.py                  # DigitalTwin class — IF-based anomaly scoring
 │   │   └── __init__.py
-│   └── 📁 zero_trust_engine/
-│       ├── zt_policy.py            # Zero Trust policy engine
+│   └── zero_trust_engine/
+│       ├── zt_policy.py                # ZeroTrustPolicyEngine — EMA trust scoring
 │       └── __init__.py
 │
-├── 📁 models/
-│   ├── 📁 autoencoder/
-│   │   ├── ae_model.py             # AutoEncoder model definition
-│   │   ├── train_ae.py             # Training script
-│   │   └── checkpoints/            # Pre-trained weights
-│   └── 📁 isolation_forest/
-│       ├── if_model.py             # Isolation Forest model
-│       ├── train_if.py             # Training script
-│       └── checkpoints/            # Pre-trained models
+├── 🧠 models/                          # ML model definitions & training scripts
+│   ├── autoencoder/
+│   │   ├── ae_model.py                 # LSTM AutoEncoder architecture (TensorFlow)
+│   │   ├── train_ae.py                 # Training script for BATADAL/SWaT datasets
+│   │   └── checkpoints/               # Saved model weights
+│   └── isolation_forest/
+│       ├── if_model.py                 # Isolation Forest builder + persistence
+│       ├── train_if.py                 # Training script with 3D→2D reshape
+│       └── checkpoints/               # Saved model weights
 │
-└── 📁 utils/
-    ├── preprocess.py               # Data preprocessing utilities
-    ├── attack_injector.py          # Attack simulation tools
-    └── __init__.py
+├── 🛠️ utils/                           # Data processing & attack simulation
+│   ├── preprocess.py                   # Synthetic sensor data generator (5 sensors)
+│   ├── attack_injector.py              # 7.5× multiplier attack simulation
+│   └── __init__.py
+│
+└── 🖼️ images/                          # Dashboard screenshots & result graphs
+    ├── First_Dashboard.png
+    ├── Live_Graph.png
+    ├── Breach_Detected.png
+    ├── No_Breach_Detected.png
+    ├── Node_Trust_Level.png
+    ├── Logs.png
+    └── Graph.png
 ```
 
 ---
 
-## 8. 🔧 Core Modules — Deep Dive
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                       QUICK START                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 
-### `framework/digital_twin/dt_core.py` — Digital Twin Core
-
-| Feature | Description |
-|---------|-------------|
-| **AutoEncoder Model** | Neural network for unsupervised anomaly detection |
-| **Isolation Forest** | Tree-based outlier detection algorithm |
-| **Ensemble Scoring** | Combined anomaly scores from both models |
-| **Real-Time Evaluation** | Streaming data processing with minimal latency |
-
-### `framework/zero_trust_engine/zt_policy.py` — Zero Trust Engine
-
-| Feature | Description |
-|---------|-------------|
-| **Trust Scoring** | Exponential moving average for continuous assessment |
-| **Policy Actions** | ALLOW · RESTRICT · ISOLATE based on trust thresholds |
-| **Adaptive Thresholds** | Dynamic adjustment based on operational context |
-
-![Node Trust Level](images/Node_Trust_Level.png)
-*Trust scoring across CPS nodes with dynamic policy decisions*
-
-### `utils/attack_injector.py` — Attack Injector
-
-| Feature | Description |
-|---------|-------------|
-| **Attack Types** | DoS, integrity attacks, sensor manipulation |
-| **Realistic Simulation** | Based on known industrial attack patterns |
-| **Validation Framework** | Ground truth for detection accuracy testing |
-
-#### 🟢 Normal Operation
-
-![No Breach Detected](images/No_Breach_Detected.png)
-*All nodes operating normally — high trust scores, no anomalies detected*
-
-#### 🔴 Attack Detected
-
-![Breach Detected](images/Breach_Detected.png)
-*Breach flagged — automatic anomaly detection and access isolation triggered*
-
----
-
-## 9. 🚀 Setup & Usage
+## 🚀 8. Quick Start
 
 ### Prerequisites
 
-- Python **3.8+**
-- TensorFlow **2.16+**
-- scikit-learn **1.3.2**
+| Requirement | Version |
+|-------------|---------|
+| Python | 3.8+ |
+| TensorFlow | 2.16+ |
+| scikit-learn | 1.3.2 |
+| Streamlit | Latest |
 
 ### Installation
 
@@ -478,175 +695,212 @@ cd zt-dt-industrial-cps
 pip install -r requirements.txt
 ```
 
-### Training Models
+### Usage
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🖥️ CLI Mode
 
 ```bash
-# Train AutoEncoder
+python main.py
+```
+
+**Expected Output:**
+```
+Initializing components...
+Initialization complete. Starting live stream...
+
+Timestamp               | Status  | Anomaly | Trust Score | ZTP Action
+---------------------------------------------------------------------------
+2024-01-15 10:30:15.123 | Normal  |    0.12 |      0.9500 | ✅ ALLOW
+2024-01-15 10:30:16.456 | Normal  |    0.08 |      0.9600 | ✅ ALLOW
+2024-01-15 10:30:17.789 | Attack  |    0.87 |      0.3400 | ⛔ RESTRICT
+```
+
+</td>
+<td width="50%">
+
+#### 📊 Dashboard Mode
+
+```bash
+streamlit run dashboard.py
+```
+
+**Features:**
+- 🟢 Start/Stop monitoring
+- 💉 Inject targeted attacks
+- 📈 Live trust & anomaly graphs
+- 📝 Color-coded audit logs
+- ⚙️ Adjustable tick rate
+
+</td>
+</tr>
+</table>
+
+### Training Models (Optional)
+
+```bash
+# Train AutoEncoder on BATADAL & SWaT datasets
 python models/autoencoder/train_ae.py
 
 # Train Isolation Forest
 python models/isolation_forest/train_if.py
 ```
 
-### Running the System
-
-```bash
-# Start real-time monitoring
-python main.py
-```
-
-### Expected Output
-
-```
-Initializing components...
-Initialization complete. Starting live stream...
-
-Timestamp               | Status  | Anomaly | Trust Score | ZTP Action
------------------------------------------------------------------------
-2024-01-15 10:30:15.123 | Normal  |    0.12 |        0.95 | ✅ ALLOW
-2024-01-15 10:30:16.456 | Normal  |    0.08 |        0.96 | ✅ ALLOW
-2024-01-15 10:30:17.789 | Attack  |    0.87 |        0.34 | ⛔ RESTRICT
-```
-
-![Live Dashboard](images/Live_Graph.png)
-*Real-time monitoring dashboard with anomaly detection and trust scoring*
-
-![Logs](images/Logs.png)
-*System logs showing detailed event tracking and decision history*
+> **Note:** Training requires preprocessed dataset files in `data/processed/`. The simulation mode works out-of-the-box with synthetic data.
 
 ---
 
-## 10. ⚠️ Implementation Limitations
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                          DATASETS                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 📦 9. Datasets
+
+This project is validated on industry-standard ICS anomaly detection benchmarks provided by **iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design**.
+
+| Dataset | Records | Sensors | Attack Scenarios | Domain |
+|---------|:-------:|:-------:|:----------------:|--------|
+| **Secure Water Treatment (SWaT)** | ~900K | 51 | 6 real-world attacks | Secure water treatment testbed |
+| **BATADAL** | ~500K | 43 | 34 labeled attacks | Water distribution network |
+
+These datasets were officially requested and granted by **iTRUST** (iTRUST@sutd.edu.sg) from the **Singapore University of Technology and Design**, 8 Somapah Road, Building 2, Level 7, Singapore 487372.
+
+> ⚠️ Dataset access requires an **institutional email** and agreement to the usage terms. All requests must go through the [official iTrust request form](https://itrust.sutd.edu.sg/).
+
+### 📜 Usage Conditions
+
+By using these datasets, the following conditions are agreed upon:
+
+> **(a)** Have your and your organisation's name and the date of request published.
+>
+> **(b)** Give explicit credit to **"iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design"** when the outcome of using the dataset appears in published works.
+>
+> **(c)** Inform iTrust when such works have been published.
+>
+> **(d)** **Not share the dataset with others**, whether in a private or public setting — all additional requests must go through the [official request form](https://itrust.sutd.edu.sg/).
+
+> [!WARNING]
+> These datasets are provided on a **good faith and "as is" basis**. iTrust does not provide follow-up support, clarifications, or answers to queries regarding downloaded datasets.
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                        LIMITATIONS                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## ⚠️ 10. Limitations
 
 | Limitation | Details |
-|------------|---------|
-| **Dataset Dependency** | Performance validated only on BATADAL and SWaT datasets |
-| **Computational Requirements** | TensorFlow models benefit from GPU for optimal performance |
-| **Real-World Deployment** | Requires integration with actual SCADA systems |
-| **Attack Diversity** | Limited to simulated attack types, not all real-world scenarios |
-| **Scalability** | Current implementation designed for single-system monitoring |
+|:----------:|---------|
+| 📊 **Dataset Dependency** | Performance validated only on BATADAL and SWaT water treatment datasets |
+| 🖥️ **Compute Requirements** | TensorFlow models benefit from GPU for optimal training performance |
+| 🏭 **Real-World Deployment** | Requires integration with actual SCADA/PLC systems for production use |
+| 💉 **Attack Diversity** | Limited to simulated attack types; not all real-world APT scenarios covered |
+| 📐 **Scalability** | Current implementation designed for single-system monitoring |
 
 ---
 
-## 📦 Datasets
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                       EXPERIMENTAL SETUP                           -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 
-This project uses publicly available ICS datasets from **iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design**.
+<details>
+<summary><h2>🧪 Experimental Setup (click to expand)</h2></summary>
+
+&nbsp;
+
+| Parameter | Details | Rationale |
+|-----------|---------|-----------|
+| **Environment** | Python 3.8+ with socket-based communication | Realistic network simulation |
+| **Components** | 5 virtual sensors + PLC + actuators | Minimal water treatment topology |
+| **Baseline Data** | 50–100 timesteps of clean operation | Sufficient for IF normality learning |
+| **IF Configuration** | 100 estimators, contamination=0.05 | Optimized via grid search |
+| **Anomaly Thresholds** | Grid search (0.5–0.9), 5-fold CV | Optimal TPR/FPR tradeoff |
+| **Trust Parameters** | EMA α=0.80, τ_high=0.80, τ_low=0.50 | Per ICICI-2025 paper |
+| **Data Split** | 70/30 train/test, 60-timestep window | Prevents temporal leakage |
+| **Attack Injection** | Every 10 timesteps (10% rate) | Realistic attack frequency |
+| **Hardware** | Intel i7 (4-core), 16 GB RAM, no GPU | Validates edge feasibility |
+| **Evaluation** | Precision, Recall, F1, FPR, Latency, CPU | Comprehensive assessment |
+
+&nbsp;
+
+</details>
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                        CONTRIBUTING                                -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 🤝 11. Contributing
+
+Contributions are welcome! Follow these steps:
+
+```bash
+# 1. Fork the repository
+
+# 2. Create a feature branch
+git checkout -b feature/AmazingFeature
+
+# 3. Commit your changes
+git commit -m 'Add AmazingFeature'
+
+# 4. Push to the branch
+git push origin feature/AmazingFeature
+
+# 5. Open a Pull Request
+```
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                           TEAM                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## 👥 12. Team
+
+### Contributors
 
 <table>
 <tr>
-<td width="50%">
-
-### BATADAL
-*Battle of the Attack Detection Algorithms*
-
-- **Source**: Water Distribution System benchmark
-- **Size**: ~500K records
-- **Features**: 43 sensor measurements
-- **Attacks**: 34 labeled attack scenarios (17 types)
-- 🔗 [Request Dataset](https://itrust.sutd.edu.sg/itrust-labs_datasets/dataset_info/)
-
-</td>
-<td width="50%">
-
-### SWaT
-*Secure Water Treatment*
-
-- **Source**: Physical water treatment testbed
-- **Size**: ~900K records (11 days)
-- **Features**: 51 sensors (continuous + discrete)
-- **Attacks**: 6 real-world attack scenarios
-- 🔗 [Request Dataset](https://itrust.sutd.edu.sg/itrust-labs_datasets/dataset_info/)
-
-</td>
+<th>Name</th>
+<th>USN</th>
+<th>Email</th>
+</tr>
+<tr>
+<td><strong>Prajwal R P</strong></td>
+<td><code>ENG23CY0032</code></td>
+<td><a href="mailto:eng23cy0032@dsu.edu.in">eng23cy0032@dsu.edu.in</a></td>
+</tr>
+<tr>
+<td><strong>Sudeep Gowda</strong></td>
+<td><code>ENG24CY1005</code></td>
+<td><a href="mailto:eng24cy1005@dsu.edu.in">eng24cy1005@dsu.edu.in</a></td>
+</tr>
+<tr>
+<td><strong>Darshan H</strong></td>
+<td><code>ENG23CY0011</code></td>
+<td><a href="mailto:eng23cy0011@dsu.edu.in">eng23cy0011@dsu.edu.in</a></td>
+</tr>
+<tr>
+<td><strong>Shashanka N</strong></td>
+<td><code>ENG23CY0036</code></td>
+<td><a href="mailto:eng23cy0036@dsu.edu.in">eng23cy0036@dsu.edu.in</a></td>
+</tr>
+<tr>
+<td><strong>Shivalingayya S Yadrami</strong></td>
+<td><code>ENG23CY0037</code></td>
+<td><a href="mailto:eng23cy0037@dsu.edu.in">eng23cy0037@dsu.edu.in</a></td>
 </tr>
 </table>
-
-### Dataset Access
-
-Researchers can request datasets via [iTrust SUTD](https://itrust.sutd.edu.sg). Requirements:
-- Institutional email and affiliation
-- Agreement to usage terms
-
-### Attribution
-
-When using these datasets you must:
-- ✅ Credit **"iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design"**
-- ✅ Cite properly in all publications
-- ⚠️ Keep datasets confidential
-- 📧 Notify iTrust upon publication
-
-> *"We acknowledge iTrust, Centre for Research in Cyber Security, Singapore University of Technology and Design, for providing the BATADAL and SWaT datasets used in this research."*
-
----
-
-## 🛠️ Development
-
-```bash
-# Install dev dependencies
-pip install pytest-cov black flake8
-
-# Run tests
-pytest tests/ -v --cov=framework --cov=models
-
-# Code quality
-black . --line-length=100
-flake8 . --max-line-length=100
-```
-
----
-
-## 📈 Future Enhancements
-
-- [ ] Real-time model retraining and adaptation
-- [ ] Multi-system federation support
-- [ ] Distributed inference across edge devices
-- [ ] Advanced visualization dashboards
-- [ ] Integration with SCADA/ICS platforms
-- [ ] Explainability module (SHAP/LIME)
-- [ ] Performance optimization for embedded systems
-- [ ] Additional industrial datasets (gas, power, manufacturing)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/AmazingFeature`
-3. **Commit** your changes: `git commit -m 'Add AmazingFeature'`
-4. **Push** to the branch: `git push origin feature/AmazingFeature`
-5. **Open** a Pull Request
-
----
-
-## ⚖️ Disclaimer
-
-This implementation is for **research and educational purposes only**. Production deployments must comply with:
-
-- **IEC 62443** — Industrial Automation and Control Systems security standards
-- **NIST Cybersecurity Framework** — Framework for managing cybersecurity risk
-- **Industry-Specific Regulations** — Water, power, and manufacturing guidelines
-- **Safety-Critical Requirements** — Formal verification for systems affecting human safety
-
----
-
-## 👥 Contributors
-
-| Name | USN | Email |
-|------|-----|-------|
-| Prajwal R P | ENG23CY0032 | eng23cy0032@dsu.edu.in |
-| Sudeep Gowda | ENG24CY1005 | eng24cy1005@dsu.edu.in |
-| Darshan H | ENG23CY0011 | eng23cy0011@dsu.edu.in |
-| Shashanka N | ENG23CY0036 | eng23cy0036@dsu.edu.in |
-| Shivalingayya S Yadrami | ENG23CY0037 | eng23cy0037@dsu.edu.in |
 
 **Department of Computer Science and Engineering (Cyber Security)**
 School of Engineering, Dayananda Sagar University
 
----
-
-## 🧑‍🏫 Mentor
+### 🧑‍🏫 Mentor
 
 **Dr. Prajwalasimha S N**, Ph.D., Postdoc. (NewRIIS)
 Associate Professor — Department of CSE (Cyber Security)
@@ -654,7 +908,28 @@ School of Engineering, Dayananda Sagar University
 
 ---
 
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                         DISCLAIMER                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+## ⚖️ 13. Disclaimer
+
+> This implementation is for **research and educational purposes only**. Production deployments must comply with **IEC 62443**, the **NIST Cybersecurity Framework**, relevant industry regulations, and safety-critical verification requirements.
+
+---
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!--                           FOOTER                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
 <div align="center">
+
+<br>
+
+<img src="https://img.shields.io/badge/Made_with-❤️-EF4444?style=for-the-badge&labelColor=0d1117" alt="Made with love">
+<img src="https://img.shields.io/badge/Built_at-TTEH_LAB-8B5CF6?style=for-the-badge&labelColor=0d1117" alt="TTEH LAB">
+
+<br><br>
 
 **TTEH LAB · School of Engineering · Dayananda Sagar University**
 
@@ -663,5 +938,7 @@ School of Engineering, Dayananda Sagar University
 <br>
 
 *If you find this work useful, please consider giving it a ⭐*
+
+<br>
 
 </div>
