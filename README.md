@@ -46,22 +46,11 @@
 
 <div align="center">
 
-```
-+----------+--------------------------------------------------------------+
-|          |                                                              |
-| PROBLEM  |  Industrial CPS face cyberattacks that bypass                |
-|          |  traditional perimeter security models                       |
-|          |                                                              |
-+----------+--------------------------------------------------------------+
-| SOLUTION |  Digital Twin + Dual ML Models + Zero Trust Engine            |
-|          |  for continuous, real-time threat detection                   |
-|          |                                                              |
-+----------+--------------------------------------------------------------+
-| RESULTS  |  94.5% F1-Score  |  2.8% FPR  |  <2s Response Time          |
-|          |  Validated on BATADAL & SWaT industrial datasets             |
-|          |                                                              |
-+----------+--------------------------------------------------------------+
-```
+| | |
+|:---:|---|
+| **🏭 PROBLEM** | Industrial CPS face cyberattacks that bypass traditional perimeter security models |
+| **💡 SOLUTION** | Digital Twin + Dual ML Models + Zero Trust Engine for continuous, real-time threat detection |
+| **📊 RESULTS** | **94.5%** F1-Score &nbsp;│&nbsp; **2.8%** FPR &nbsp;│&nbsp; **<2s** Response Time <br> *Validated on BATADAL & SWaT industrial datasets* |
 
 `Zero Trust Security` &nbsp;·&nbsp; `Digital Twins` &nbsp;·&nbsp; `Anomaly Detection` &nbsp;·&nbsp; `Industrial CPS` &nbsp;·&nbsp; `Real-Time ML`
 
