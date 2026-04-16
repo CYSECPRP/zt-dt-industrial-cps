@@ -935,16 +935,17 @@ School of Engineering, Dayananda Sagar University
 
 <br>
 
-MADE WITH ❤️&nbsp;&nbsp;
-<img src="https://img.shields.io/badge/Built_at-TTEH_LAB-8B5CF6?style=for-the-badge&labelColor=0d1117" alt="TTEH LAB" style="vertical-align: middle;">
+[![Made with Love](https://img.shields.io/badge/Made_with-💖-ff69b4?style=for-the-badge)](https://github.com/yourusername)
+[![Built at TTEH LAB](https://img.shields.io/badge/Built_at-TTEH_LAB-8b5cf6?style=for-the-badge)](https://tteh.dsu.edu.in)
 
-<br><br>
+<br>
 
 **TTEH LAB • School of Engineering • Dayananda Sagar University**
+
+*Bangalore — 562112, Karnataka, India*
+
 <br>
-*Bangalore — 561112, Karnataka, India*
-<br>
-*If you find this work useful, please consider giving it a ⭐*
-<br>
+
+*If you find this work useful, please consider giving it a* ⭐
 
 </div>
