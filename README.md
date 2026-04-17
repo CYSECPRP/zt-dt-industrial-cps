@@ -80,7 +80,6 @@
 | 10 | [⚠️ Limitations](#️-10-limitations) | Known constraints |
 | 11 | [🤝 Contributing](#-11-contributing) | How to contribute |
 | 12 | [👥 Team](#-12-team) | Contributors & mentor |
-| 13 | [⚖️ Disclaimer](#️-13-disclaimer) | Legal & compliance notes |
 
 &nbsp;
 
@@ -913,16 +912,6 @@ School of Engineering, Dayananda Sagar University
 **Dr. Prajwalasimha S N**, Ph.D., Postdoc. (NewRIIS)
 Associate Professor — Department of CSE (Cyber Security)
 School of Engineering, Dayananda Sagar University
-
----
-
-<!-- ═══════════════════════════════════════════════════════════════════ -->
-<!--                         DISCLAIMER                                 -->
-<!-- ═══════════════════════════════════════════════════════════════════ -->
-
-## ⚖️ 13. Disclaimer
-
-> This implementation is for **research and educational purposes only**. Production deployments must comply with **IEC 62443**, the **NIST Cybersecurity Framework**, relevant industry regulations, and safety-critical verification requirements.
 
 ---
 
